@@ -27,7 +27,7 @@ RUN set -e \
 
 EXPOSE 5060-5061/udp 5060-5061/tcp
 EXPOSE 10000-10050/UDP
-RUN chmod +x docker-entrypoint.sh
 ADD docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
