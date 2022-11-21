@@ -10,6 +10,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      nano \
      mariadb-connector-odbc \
      mc \
+     php7 \
      asterisk \
      asterisk-curl \
      asterisk-dev \
