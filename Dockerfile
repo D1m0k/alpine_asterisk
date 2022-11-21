@@ -4,7 +4,7 @@ LABEL maintainer="Dmitry Konovalov"
 
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL ru_RU.UTF-8
-
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 RUN set -e 
 RUN apk add --update --quiet 
 RUN apk add nano 
