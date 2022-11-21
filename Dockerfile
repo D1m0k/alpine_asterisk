@@ -5,17 +5,17 @@ LABEL maintainer="Dmitry Konovalov"
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL ru_RU.UTF-8
 
-RUN set -e \
-     && apk add --update --quiet \
-     && apk add nano \
-     && apk add mariadb-connector-odbc \
-     && apk add mc \
-     && apk add asterisk \
-     && apk add asterisk-curl \
-     && apk add asterisk-dev \
-     && apk add asterisk-doc \
-     && apk add asterisk-odbc \
-     asterisk-sample-config >/dev/null \
+RUN set -e 
+RUN apk add --update --quiet 
+RUN apk add nano 
+RUN apk add mariadb-connector-odbc 
+RUN apk add mc 
+RUN apk add asterisk 
+RUN apk add asterisk-curl 
+RUN apk add asterisk-dev 
+RUN apk add asterisk-doc 
+RUN apk add asterisk-odbc 
+RUN apk add asterisk-sample-config >/dev/null \
      && asterisk -U asterisk &>/dev/null \
      && sleep 5s \
      && [ "$(asterisk -rx "core show channeltypes" | grep PJSIP)" != "" ] && : \
