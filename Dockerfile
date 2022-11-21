@@ -8,7 +8,13 @@ ENV LC_ALL ru_RU.UTF-8
 RUN set -e \
      && apk add --update --quiet \
      nano \
+     mariadb-connector-odbc \
+     mc \
      asterisk \
+     asterisk-curl \
+     asterisk-dev \
+     asterisk-doc \
+     asterisk-odbc \
      asterisk-sample-config >/dev/null \
      && asterisk -U asterisk &>/dev/null \
      && sleep 5s \
@@ -34,6 +40,7 @@ RUN set -e \
 
 EXPOSE 5060-5061/udp 5060-5061/tcp
 EXPOSE 10000-10050/UDP
+VOLUME /var/lib/asterisk /etc/asterisk /var/spool/asterisk /var/log/asterisk
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
 
