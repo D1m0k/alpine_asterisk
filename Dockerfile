@@ -4,18 +4,18 @@ LABEL maintainer="Dmitry Konovalov"
 
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL ru_RU.UTF-8
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
-RUN set -e 
-RUN apk add --update --quiet 
-RUN apk add nano 
-RUN apk add mariadb-connector-odbc 
-RUN apk add mc 
-RUN apk add asterisk 
-RUN apk add asterisk-curl 
-RUN apk add asterisk-dev 
-RUN apk add asterisk-doc 
-RUN apk add asterisk-odbc 
-RUN apk add asterisk-sample-config >/dev/null \
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+&& set -e \
+&& apk add --update --quiet \
+     nano \
+     mariadb-connector-odbc \
+     mc \
+     asterisk \
+     asterisk-curl \
+     asterisk-dev \
+     asterisk-doc \
+     asterisk-odbc \
+     asterisk-sample-config >/dev/null \
      && asterisk -U asterisk &>/dev/null \
      && sleep 5s \
      && [ "$(asterisk -rx "core show channeltypes" | grep PJSIP)" != "" ] && : \
