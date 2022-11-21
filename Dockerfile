@@ -7,14 +7,14 @@ ENV LC_ALL ru_RU.UTF-8
 
 RUN set -e \
      && apk add --update --quiet \
-     nano \
-     mariadb-connector-odbc \
-     mc \
-     asterisk \
-     asterisk-curl \
-     asterisk-dev \
-     asterisk-doc \
-     asterisk-odbc \
+     && apk add nano \
+     && apk add mariadb-connector-odbc \
+     && apk add mc \
+     && apk add asterisk \
+     && apk add asterisk-curl \
+     && apk add asterisk-dev \
+     && apk add asterisk-doc \
+     && apk add asterisk-odbc \
      asterisk-sample-config >/dev/null \
      && asterisk -U asterisk &>/dev/null \
      && sleep 5s \
