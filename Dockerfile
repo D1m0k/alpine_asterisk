@@ -25,9 +25,6 @@ RUN set -e \
      && truncate -s 0 \
      /var/log/asterisk/messages \
      /var/log/asterisk/queue_log || : \
-     && sed -i -e 's/noload = chan_sip.so/require = chan_sip.so/' /etc/asterisk/modules.conf \
-     && echo 'noload = res_pjsip.so' >> /etc/asterisk/modules.conf \
-     && echo 'noload = chan_pjsip.so' >> /etc/asterisk/modules.conf \
      && echo '#tryinclude "sip/*.conf"' >> /etc/asterisk/sip.conf \
      && echo '#tryinclude "dialplan/*.conf"' >> /etc/asterisk/extensions.conf \
      && echo '#include "ael/*.conf"' >> /etc/asterisk/extensions.ael \
