@@ -5,8 +5,8 @@ LABEL maintainer="Dmitry Konovalov"
 ENV LANG=ru_RU.UTF-8
 ENV LC_ALL ru_RU.UTF-8
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
-&& set -e \
-&& apk add --update --quiet \
+     && set -e \
+     && apk add --update --quiet \
      nano \
      mariadb-connector-odbc \
      unixodbc \
@@ -36,7 +36,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      Setup=/usr/lib64/libodbcmyS.so\n\
      UsageCount=1\n' > /etc/odbcinst.ini \
      && echo $'[asterisk-connector]\n\
-     Description = MySQL connection to 'asterisk' database\n\
+     Description = MySQL connection to asterisk database\n\
      Driver = MariaDB\n\
      Database = asterisk\n\
      Server = localhost\n\
