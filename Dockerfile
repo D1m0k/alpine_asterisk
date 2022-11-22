@@ -9,6 +9,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
 && apk add --update --quiet \
      nano \
      mariadb-connector-odbc \
+     unixodbc \
      mc \
      php7 \
      asterisk \
@@ -29,6 +30,17 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      && echo '#tryinclude "sip/*.conf"' >> /etc/asterisk/sip.conf \
      && echo '#tryinclude "dialplan/*.conf"' >> /etc/asterisk/extensions.conf \
      && echo '#include "ael/*.conf"' >> /etc/asterisk/extensions.ael \
+     && echo "[MariaDB] \
+     Description=ODBC for MariaDB \
+     Driver=/usr/lib/mariadb/libmaodbc.so \
+     Setup=/usr/lib64/libodbcmyS.so \
+     UsageCount=1" > /etc/odbcinst.ini \
+     && echo "[asterisk-connector] \
+     Description = MySQL connection to 'asterisk' database \
+     Driver = MariaDB \
+     Database = asterisk \
+     Server = localhost \
+     Port = 3306" > /etc/odbc.ini \
      && mkdir -p /var/spool/asterisk/fax \
      && chown -R asterisk: /var/spool/asterisk \
      && rm -rf /var/run/asterisk/* \
