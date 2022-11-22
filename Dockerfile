@@ -30,12 +30,12 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      && echo '#tryinclude "sip/*.conf"' >> /etc/asterisk/sip.conf \
      && echo '#tryinclude "dialplan/*.conf"' >> /etc/asterisk/extensions.conf \
      && echo '#include "ael/*.conf"' >> /etc/asterisk/extensions.ael \
-     && echo "[MariaDB]\n\
+     && echo $"[MariaDB]\n\
      Description=ODBC for MariaDB\n\
      Driver=/usr/lib/mariadb/libmaodbc.so\n\
      Setup=/usr/lib64/libodbcmyS.so\n\
      UsageCount=1\n" > /etc/odbcinst.ini \
-     && echo "[asterisk-connector]\n\
+     && echo $"[asterisk-connector]\n\
      Description = MySQL connection to 'asterisk' database\n\
      Driver = MariaDB\n\
      Database = asterisk\n\
