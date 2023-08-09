@@ -12,6 +12,9 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      unixodbc \
      mc \
      php7 \
+     php7-fpm \
+     php7-opcache \
+     php7-curl \
      asterisk \
      asterisk-curl \
      asterisk-dev \
