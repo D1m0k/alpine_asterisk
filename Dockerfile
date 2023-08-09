@@ -13,11 +13,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      mc \
      php7 \
      php7-fpm \
-     php7-opcache \
      php7-curl \
-     php7-gd \
      php7-mysqli \
-     php7-zlib \
      asterisk \
      asterisk-curl \
      asterisk-dev \
