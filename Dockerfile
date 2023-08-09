@@ -21,6 +21,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      asterisk-doc \
      asterisk-odbc \
      asterisk-sample-config >/dev/null \
+     && ln -s /usr/bin/php83 /usr/bin/php \
      && asterisk -U asterisk &>/dev/null \
      && sleep 5s \
      && [ "$(asterisk -rx "core show channeltypes" | grep PJSIP)" != "" ] && : \
