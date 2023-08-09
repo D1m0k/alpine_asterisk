@@ -11,10 +11,10 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      mariadb-connector-odbc \
      unixodbc \
      mc \
-     php7 \
-     php7-fpm \
-     php7-curl \
-     php7-mysqli \
+     php83 \
+     php83-fpm \
+     php83-curl \
+     php83-mysqli \
      asterisk \
      asterisk-curl \
      asterisk-dev \
