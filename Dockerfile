@@ -11,6 +11,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
      mariadb-connector-odbc \
      unixodbc \
      mc \
+     curl \
      php83 \
      php83-fpm \
      php83-curl \
